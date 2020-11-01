@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/github_navigation"
+    app:startDestination="@id/mainFeedFragment">
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.githubclone.view.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_mainFeedFragment"
+            app:destination="@id/mainFeedFragment" />
+        <argument
+            android:name="repoId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="GithubRepository"
+            app:argType="com.example.githubclone.model.Repository" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFeedFragment"
+        android:name="com.example.githubclone.view.MainFeedFragment"
+        android:label="MainFeedFragment" >
+        <action
+            android:id="@+id/action_mainFeedFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <argument android:name="repoId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="Repositroy"
+            app:argType="com.example.githubclone.model.Repository" />
+    </fragment>
+</navigation>
